@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Safari Icon</title>
+    <script type="application/javascript">
+      function draw() {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+
+          //create color gradiant
+          var lingrad = ctx.createLinearGradient(0,0,0,150);
+          lingrad.addColorStop(.2, '#D1F4FF');
+          lingrad.addColorStop(.6, '#41C1FC');
+
+          //outer circle
+          ctx.beginPath();
+          ctx.arc(75,75,55,0,Math.PI*2,true);
+          ctx.stroke();
+
+          //fill circle
+          ctx.fillStyle = lingrad;
+          ctx.beginPath();
+          ctx.arc(75,75,50,0,Math.PI*2,true);
+          ctx.fill();
+
+          //tick marks
+          ctx.strokeStyle = 'white'
+
+
+          //red arrow
+          ctx.fillStyle = 'red';
+          ctx.beginPath();
+          ctx.moveTo(70,70);
+          ctx.lineTo(110.5,35.5);
+          ctx.lineTo(80,80);
+          ctx.fill();
+
+          //white arrow
+          ctx.fillStyle = 'white';
+          ctx.beginPath();
+          ctx.moveTo(70,70);
+          ctx.lineTo(35.5,110.5);
+          ctx.lineTo(80,80);
+          ctx.fill();
+        }
+      }
+    </script>
+  <body onload="draw();">
+    <canvas id="canvas" with="150" height="150"></canvas>
+  </body>
+</html>
