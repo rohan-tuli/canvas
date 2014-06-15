@@ -7,70 +7,177 @@
         if (canvas.getContext){
           var ctx = canvas.getContext('2d');
 
+          //background
+          var lingrad = ctx.createLinearGradient(0,0,0,150);
+          lingrad.addColorStop(.2, 'black');
+          lingrad.addColorStop(.6, 'DarkBlue');
+          ctx.fillStyle = lingrad;
+          ctx.fillRect(0,0,500,201);
+
+          //foreground box
+          ctx.fillStyle = 'white';
+          ctx.beginPath();
+          ctx.moveTo(0,210);
+          ctx.lineTo(500,210);
+          ctx.lineTo(500,129);
+          ctx.lineTo(0,129);
+          ctx.lineTo(0,210);
+          ctx.fill();
+
+          //platform
+          ctx.strokeStyle = 'black';
+          ctx.beginPath();
+          ctx.moveTo(0,129);
+          ctx.lineTo(130,129);
+          ctx.moveTo(270,130);
+          ctx.lineTo(500,130);
+          ctx.moveTo(40,210);
+          ctx.lineTo(81,169);
+          ctx.lineTo(81,139);
+          ctx.lineTo(40,180);
+          ctx.lineTo(40,210);
+          ctx.moveTo(40,180);
+          ctx.lineTo(0,180);
+          ctx.moveTo(81,139);
+          ctx.lineTo(0,139);
+          ctx.stroke();
+
+          //platform shadow
+          ctx.fillStyle='LightGray';
+          ctx.beginPath();
+          ctx.moveTo(40,210);
+          ctx.lineTo(80,210)
+          ctx.lineTo(121,169);
+          ctx.lineTo(81,169);
+          ctx.lineTo(40,210)
+          ctx.fill();
+
+          //fill
           ctx.fillStyle = 'CornflowerBlue';
           ctx.beginPath();
-          ctx.moveTo(30,80);
-          ctx.lineTo(70,40);
+          ctx.moveTo(130,80);
           ctx.lineTo(170,40);
-          ctx.lineTo(170,140);
+          ctx.lineTo(270,40);
+          ctx.lineTo(270,140);
+          ctx.lineTo(230,180);
+          ctx.lineTo(210,200);
+          ctx.lineTo(190,200);
+          ctx.lineTo(190,180);
+          ctx.lineTo(170,200);
+          ctx.lineTo(150,200);
+          ctx.lineTo(150,180);
           ctx.lineTo(130,180);
-          ctx.lineTo(110,200);
-          ctx.lineTo(90,200);
           ctx.fill();
 
           ctx.strokeStyle = 'DarkBlue';
           ctx.beginPath();
+
           //front
-          ctx.moveTo(50,200);
-          ctx.lineTo(70,200);
-          ctx.lineTo(70,180);
-          ctx.lineTo(90,180);
-          ctx.lineTo(90,200);
-          ctx.lineTo(110,200);
-          ctx.lineTo(110,180);
+          ctx.moveTo(150,200);
+          ctx.lineTo(170,200);
+          ctx.lineTo(170,180);
+          ctx.lineTo(190,180);
+          ctx.lineTo(190,200);
+          ctx.lineTo(210,200);
+          ctx.lineTo(210,180);
+          ctx.lineTo(230,180);
+          ctx.lineTo(230,80);
+          ctx.lineTo(130,80);
           ctx.lineTo(130,180);
-          ctx.lineTo(130,80);
-          ctx.lineTo(30,80);
-          ctx.lineTo(30,180);
-          ctx.lineTo(50,180);
-          ctx.lineTo(50,200);
+          ctx.lineTo(150,180);
+          ctx.lineTo(150,200);
+
           //right
-          ctx.moveTo(130,180);
-          ctx.lineTo(170,140);
-          ctx.lineTo(170,40);
-          ctx.lineTo(130,80);
+          ctx.moveTo(230,180);
+          ctx.lineTo(270,140);
+          ctx.lineTo(270,40);
+          ctx.lineTo(230,80);
+
           //legs
-          ctx.moveTo(110,200);
-          ctx.lineTo(150,160);
-          ctx.moveTo(70,200);
-          ctx.lineTo(90,180);
+          ctx.moveTo(210,200);
+          ctx.lineTo(250,160);
+          ctx.moveTo(170,200);
+          ctx.lineTo(190,180);
+
           //top
-          ctx.moveTo(30,80);
-          ctx.lineTo(70,40);
+          ctx.moveTo(130,80);
           ctx.lineTo(170,40);
+          ctx.lineTo(270,40);
+          ctx.stroke();
+
+          //eye whites
+          ctx.fillStyle = 'white';
+          ctx.beginPath();
+          ctx.arc(200,100,10,0,Math.PI*2,true);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(160,100,10,0,Math.PI*2,true);   
+          ctx.fill();
+
+          //eye pupils
+          ctx.fillStyle = 'DarkBlue';
+          ctx.beginPath();
+          ctx.arc(202,100,3,0,Math.PI*2,true);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(162,100,3,0,Math.PI*2,true); 
+
+          ctx.fill();
+          //eyes
+          ctx.beginPath();
+          ctx.arc(200,100,10,0,Math.PI*2,true);
           ctx.stroke();
 
           ctx.beginPath();
-          ctx.arc(100,100,10,0,Math.PI*2,true);
+          ctx.arc(160,100,10,0,Math.PI*2,true);   
           ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(60,100,10,0,Math.PI*2,true);   
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.moveTo(40,130);
-          ctx.lineTo(80,150);
-          ctx.lineTo(120,130);
-          ctx.stroke();
-
           
+          ctx.beginPath();
+          ctx.moveTo(140,130);
+          ctx.lineTo(180,150);
+          ctx.lineTo(220,130);
+          ctx.stroke();
+
+          //balloon
+          var radgrad = ctx.createRadialGradient(45,60,10,52,60,30);
+          radgrad.addColorStop(0, '#A7D30C');
+          radgrad.addColorStop(0.9, '#019F62');
+          radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+
+          ctx.fillStyle = radgrad;
+          ctx.fillRect(20,0,400,150);
+
+          //shadow
+          ctx.fillStyle='LightGray';
+          ctx.beginPath();
+          ctx.moveTo(210,200);
+          ctx.lineTo(350,200);
+          ctx.lineTo(400,150);
+          ctx.lineTo(260,150);
+          ctx.fill();
+
+          //red pane
+          ctx.fillStyle = 'rgba(200,0,0,.5)';
+          ctx.fillRect(0,50,50,200);  
+          ctx.strokeStyle = 'red';
+          ctx.strokeRect(0,50,50,200);
+
+
+
+
         }
       }
      </script>
+    <style type="text/css">
+      canvas { border: 3px solid red; }
+    </style>
    </head>
    <body onload="draw();">
-    <canvas id="canvas" height="201 width="800></canvas>
+    <center>
+      <canvas id="canvas" height="210" width="500"></canvas>
+      <h1> HAPPY FATHERS DAY!</h1>
+    </center>
   </body>
-</html>
-    
+</html>   
