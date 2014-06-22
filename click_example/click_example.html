@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> Clicking example </title>
+  </head>
+  <body>
+    <canvas id="canvas" width="1440" height="900"></canvas>
+    <script>
+      function getMousePos(posX, posM) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: posM.clientX - rect.left,
+          y: posM.clientY - rect.top
+        };
+      }
+
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = 'blue';
+      ctx.beginPath();
+      ctx.moveTo(0,0);
+      ctx.lineTo(250,0);
+      ctx.lineTo(250,100);
+      ctx.lineTo(0,100);
+      ctx.lineTo(0,0);
+      ctx.fill();
+
+      canvas.addEventListener('click', function(e) {
+        console.log(e);
+        console.log(e.pageX);
+        console.log(e.pageY);
+        if (e.pageY < 101) {
+          if (e.pageX < 251) {
+            alert('You clicked inside the box.');
+          } else {
+            alert('You clicked outside the box.');
+          }
+        } else {
+          alert('You clicked outside the box.');
+        }
+      }, false);
+    </script>
+  </body>
+</html>
+      

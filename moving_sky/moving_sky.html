@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Moving Sky</title>
+    <script type="application/javascript">
+      var sky = new Image();
+      var ground = new Image();
+      function init(){
+        sky.src = 'stars.png';
+        ground.src = 'desert.png';
+        setInterval(draw,400);
+      }
+
+      function draw() {
+        var ctx = document.getElementById('canvas').getContext('2d');
+        
+
+        ctx.drawImage(ground,0,0);
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.clearRect(0,0,0,0);
+
+        ctx.fillStyle = 'rgba(0,0,0,0.4)';
+        ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+        ctx.save();
+        ctx.translate(150,150);
+
+        var time = new Date();
+        ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+        ctx.translate(105,0);
+        ctx.fillRect(0,0,0,0);
+        ctx.drawImage(sky,0,0);
+
+        ctx.restore();
+
+        
+      } init();
+                  
+    </script>
+    <style type="text/css">
+      canvas { border: 3px solid black; }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="canvas" height="600" width="800"></canvas>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title> Moving Square </title>
+  </head>
+  <body>
+    <center>
+      <canvas id="canvas" height="150" width="500"></canvas>
+    </center>
+    <script>
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+ 
+      ctx.fillStyle = 'orange';
+      ctx.beginPath();
+      ctx.moveTo(225,50);
+      ctx.lineTo(275,50);
+      ctx.lineTo(275,100);
+      ctx.lineTo(225,100);
+      ctx.lineTo(225,50);
+      ctx.fill();
+    </script>
+  </body>
+</html>
