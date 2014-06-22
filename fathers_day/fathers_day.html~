@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Happy Fathers Day</title>
+    <script type="application/javascript">
+      function draw() {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+
+          ctx.fillStyle = 'CornflowerBlue';
+          ctx.beginPath();
+          ctx.moveTo(30,80);
+          ctx.lineTo(70,40);
+          ctx.lineTo(170,40);
+          ctx.lineTo(170,140);
+          ctx.lineTo(130,180);
+          ctx.lineTo(110,200);
+          ctx.lineTo(90,200);
+          ctx.lineTo();
+          ctx.fill();
+
+          ctx.strokeStyle = 'DarkBlue';
+          ctx.beginPath();
+          //front
+          ctx.moveTo(50,200);
+          ctx.lineTo(70,200);
+          ctx.lineTo(70,180);
+          ctx.lineTo(90,180);
+          ctx.lineTo(90,200);
+          ctx.lineTo(110,200);
+          ctx.lineTo(110,180);
+          ctx.lineTo(130,180);
+          ctx.lineTo(130,80);
+          ctx.lineTo(30,80);
+          ctx.lineTo(30,180);
+          ctx.lineTo(50,180);
+          ctx.lineTo(50,200);
+          //right
+          ctx.moveTo(130,180);
+          ctx.lineTo(170,140);
+          ctx.lineTo(170,40);
+          ctx.lineTo(130,80);
+          //legs
+          ctx.moveTo(110,200);
+          ctx.lineTo(150,160);
+          ctx.moveTo(70,200);
+          ctx.lineTo(90,180);
+          //top
+          ctx.moveTo(30,80);
+          ctx.lineTo(70,40);
+          ctx.lineTo(170,40);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.arc(100,100,10,0,Math.PI*2,true);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.arc(60,100,10,0,Math.PI*2,true);   
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.moveTo(40,130);
+          ctx.lineTo(80,150);
+          ctx.lineTo(120,130);
+          ctx.stroke();
+
+          
+        }
+      }
+     </script>
+   </head>
+   <body onload="draw();">
+    <canvas id="canvas" height="201 width="800></canvas>
+  </body>
+</html>
+    
